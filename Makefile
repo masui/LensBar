@@ -36,6 +36,8 @@ editorapp: editor
 	mkdir Editor.app/Contents/Resources
 	mkdir Editor.app/Contents/Resources/data
 	cp data/lensbar.txt Editor.app/Contents/Resources/data
+	cp res/editor.icns Editor.app/Contents/Resources/icon.icns
+
 editordmg: editorapp
 	/bin/rm -f Editor.dmg
 	hdiutil create -srcfolder Editor.app -volname Editor Editor.dmg
@@ -56,5 +58,6 @@ push:
 
 clean:
 	-/bin/rm src/*.o
-	-/bin/rm -r Editor.app
+	-/bin/rm -r *.app
+	-/bin/rm *.dmg
 	-/bin/rm editor
