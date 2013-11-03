@@ -3,6 +3,8 @@ LIBS = -framework GLUT -framework OpenGL
 CC = gcc
 CFLAGS = $(INCLUDE) -DOPENGL -DCOCOA
 
+dmg: yahoodmg editordmg
+
 EDITOROBJ = src/editormain.o src/search.o src/graphics.o src/textbox.o src/editordict.o src/editor.o
 
 editor: $(EDITOROBJ)
@@ -36,6 +38,7 @@ editorapp: editor
 	mkdir Editor.app/Contents/Resources
 	mkdir Editor.app/Contents/Resources/data
 	cp data/lensbar.txt Editor.app/Contents/Resources/data
+	convert res/editor.png res/editor.tiff
 	tiff2icns res/editor.tiff Editor.app/Contents/Resources/icon.icns
 editordmg: editorapp
 	/bin/rm -f Editor.dmg
@@ -75,6 +78,7 @@ yahooapp: yahoo res
 	mkdir Yahoo.app/Contents/Resources/data
 	cp data/yahoo.txt Yahoo.app/Contents/Resources/data
 	cp data/jis16 Yahoo.app/Contents/Resources/data
+	convert res/yahoo.png res/yahoo.tiff
 	tiff2icns res/yahoo.tiff Yahoo.app/Contents/Resources/icon.icns
 yahoodmg: yahooapp
 	/bin/rm -f Yahoo.dmg
