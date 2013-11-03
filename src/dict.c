@@ -61,6 +61,10 @@ void readdic()
 	if(read) return;
 
 	fm = fopen(LISTFILE,"r");
+
+	printf("fm = %x\n",fm);
+	printf("cwd = %x\n",getwd(NULL));
+
 	if(fm == NULL) exit(0);
 //	fi = fopen(IMIFILE,"r");
 //	if(fi == NULL) exit(0);

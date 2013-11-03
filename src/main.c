@@ -181,6 +181,8 @@ main(int argc, char **argv)
 	tb = newtextbox(20,650,270,30);
 #endif
 
+	printf("xxxxx\n");
+
 	display();
 
 	glutDisplayFunc(display);
