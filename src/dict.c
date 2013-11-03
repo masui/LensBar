@@ -18,12 +18,12 @@
 #endif
 
 #ifdef YAHOO
-#define LISTFILE "./yahoo.txt"
+#define LISTFILE "data/yahoo.txt"
 #define MAXWORDS 280000
 #endif
 
 #ifdef CPROGRAM
-#define LISTFILE "./lensbar.txt"
+#define LISTFILE "data/lensbar.txt"
 #define MAXWORDS 2000
 #endif
 

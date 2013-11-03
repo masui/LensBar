@@ -3,26 +3,30 @@ LIBS = -framework GLUT -framework OpenGL
 CC = gcc
 CFLAGS = $(INCLUDE) -DOPENGL -DCOCOA
 
-editor: editor.o editormain.o search.o graphics.o textbox.o editordict.o
-	$(CC) -o editor editormain.o search.o graphics.o \
-		textbox.o editordict.o editor.o $(LIBS)
-editor.o: lensbar.c
-	$(CC) $(CFLAGS) -DCPROGRAM -g -c lensbar.c -o editor.o
-editormain.o: main.c
-	$(CC) $(CFLAGS) -DCPROGRAM -g -c main.c -o editormain.o
-editordict.o: dict.c
-	$(CC) $(CFLAGS) -DCPROGRAM -g -c dict.c -o editordict.o
+editor: src/editor.o src/editormain.o src/search.o src/graphics.o src/textbox.o src/editordict.o
+	$(CC) -o editor src/editormain.o src/search.o src/graphics.o \
+		src/textbox.o src/editordict.o src/editor.o $(LIBS)
+src/editor.o: src/lensbar.c
+	$(CC) $(CFLAGS) -DCPROGRAM -g -c src/lensbar.c -o src/editor.o
 
-yahoo: yahoo.o yahoomain.o search.o graphics.o textbox.o yahoodict.o
-	$(CC) -o yahoo yahoomain.o search.o graphics.o \
-		textbox.o yahoodict.o yahoo.o $(LIBS)
-yahoo.o: lensbar.c
-	$(CC) $(CFLAGS) -DYAHOO -g -c lensbar.c -o yahoo.o
-yahoomain.o: main.c
-	$(CC) $(CFLAGS) -DYAHOO -g -c main.c -o yahoomain.o
-yahoodict.o: dict.c
-	$(CC) $(CFLAGS) -DYAHOO -g -c dict.c -o yahoodict.o
+src/editormain.o: src/main.c
+	$(CC) $(CFLAGS) -DCPROGRAM -g -c src/main.c -o src/editormain.o
+src/editordict.o: src/dict.c
+	$(CC) $(CFLAGS) -DCPROGRAM -g -c src/dict.c -o src/editordict.o
+
+yahoo: src/yahoo.o src/yahoomain.o src/search.o src/graphics.o src/textbox.o src/yahoodict.o
+	$(CC) -o yahoo src/yahoomain.o src/search.o src/graphics.o \
+		src/textbox.o src/yahoodict.o src/yahoo.o $(LIBS)
+src/yahoo.o: src/lensbar.c
+	$(CC) $(CFLAGS) -DYAHOO -g -c src/lensbar.c -o src/yahoo.o
+src/yahoomain.o: src/main.c
+	$(CC) $(CFLAGS) -DYAHOO -g -c src/main.c -o src/yahoomain.o
+src/yahoodict.o: src/dict.c
+	$(CC) $(CFLAGS) -DYAHOO -g -c src/dict.c -o src/yahoodict.o
 
 
 push:
 	git push
+
+#src/%.o : src/%.c
+#	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@

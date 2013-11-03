@@ -128,7 +128,7 @@ printstr(float x, float y, unsigned char *s, float limitwidth)
 #endif
 
 
-#define JIS16FONT "jis16"
+#define JIS16FONT "data/jis16"
 #define ROW (0x74-0x21)
 #define COLUMN (0x7f-0x21)
 static unsigned char *dot16 = NULL;
