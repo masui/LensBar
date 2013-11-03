@@ -87,7 +87,8 @@ yahoodmg: yahooapp
 
 
 push:
-	git push
+	git push pitecan.com:/home/masui/git/LensBar.git
+	git push git@github.com:masui/LensBar.git
 
 clean:
 	-/bin/rm src/*.o
